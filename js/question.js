@@ -183,12 +183,19 @@ function create_questions(ans_arr, q_range){
 
   for(let i=0; i<question_num; i++){
     let ans = ans_arr[i];
-
     // sub_choice の決定
     let sub_choice = create_sub_choice(ans, sub_num, q_range);
     // special_choice の決定
     let special_choice = create_special_choice(ans, special_num, q_range);
+
+    let question_obj = {
+      ans: ans,
+      sub_choice: sub_choice,
+      special_choice: special_choice
+    };
+    questions.push(question_obj);
   }
+  return questions;
 }
 
 /* get_questions() 関数
@@ -212,8 +219,7 @@ function create_questions(ans_arr, q_range){
 */
 function get_questions(question_num, priority_mode, q_range){
   let ans_arr = get_ans(question_num, priority_mode); // まず問題にするブキのインデックスが格納されている配列を取得。
-  console.log(ans_arr);
-  let questions = create_questions(ans_arr, q_range);
+  let questions = create_questions(ans_arr, q_range); // question_obj が格納されている配列を取得。
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
