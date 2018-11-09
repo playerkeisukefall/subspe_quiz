@@ -122,6 +122,7 @@ function shuffle_arr(arr){
 function create_sub_choice(ans, sub_num, q_range){
   let sub_choice = new Array();
   let k = 0;
+  let random;
   if(q_range != 2){
     sub_choice.push(weapon_data[ans].sub_id);
     k++;
@@ -139,6 +140,40 @@ function create_sub_choice(ans, sub_num, q_range){
   return sub_choice;
 }
 
+function create_special_choice(ans, special_num, q_range){
+  let special_choice = new Array();
+  let k = 0;
+  let random;
+  if(q_range != 1){
+
+    // ボムピッチャー系の選択確率を 1 / 5 に下げるために priority_arr を用意する。
+    let priority_arr = new Array();
+    let priority;
+    for(let i=0; i<special_num; i++){
+      if(10 <= i) priority = 1;
+      else priority = 5;
+      for(let j=0; j<priority; j++){
+        priority_arr.push(i);
+      }
+    }
+
+    special_choice.push(weapon_data[ans].special_id);
+    k++;
+    let priority_sum = priority_arr.length;
+    while(1){
+      random = Math.floor(Math.random()*priority_sum);
+      if(check_overlap(special_choice, priority_arr[random])){
+        special_choice.push(priority_arr[random]);
+        k++;
+      }
+      if(k >= 4)
+        break;
+    }
+  }
+  special_choice = shuffle_arr(special_choice);
+  return special_choice;
+}
+
 function create_questions(ans_arr, q_range){
   let question_num = ans_arr.length;
   let sub_num = sub_data.length;
@@ -151,7 +186,8 @@ function create_questions(ans_arr, q_range){
 
     // sub_choice の決定
     let sub_choice = create_sub_choice(ans, sub_num, q_range);
-    console.log(sub_choice);
+    // special_choice の決定
+    let special_choice = create_special_choice(ans, special_num, q_range);
   }
 }
 
