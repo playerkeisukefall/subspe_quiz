@@ -37,7 +37,7 @@ function get_url_vars(){
 function get_questions(question_num, priority_mode, q_range){
   let ans_arr = get_ans(question_num, priority_mode); // まず問題にするブキのインデックスが格納されている配列を取得。
   let questions = create_questions(ans_arr, q_range); // question_obj が格納されている配列を取得。
-  console.log(questions);
+  return questions;
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -50,5 +50,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
   console.log(question_num);
   //confirm_data();
   //confirm_ans(question_num, priority_mode);
-  get_questions(question_num, priority_mode, q_range);
+  let questions = get_questions(question_num, priority_mode, q_range);
 });

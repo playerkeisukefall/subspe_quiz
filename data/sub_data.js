@@ -1,7 +1,7 @@
 let sub_data = [
   {
     name: "クイックボム", // 0
-    path: "./img/question/sub/01.png"
+    path: "../img/main/sub/01.png"
   },
   {
     name: "スプラッシュボム", // 1

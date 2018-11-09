@@ -6,7 +6,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 0,
     special_id: 1,
-    path: "./img/question/weapon/a01.png",
+    path: "../img/main/weapon/a01.png",
     priority: 2
   },
   {
@@ -14,7 +14,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 1,
     special_id: 0,
-    path: "./img/question/weapon/a02.png",
+    path: "../img/main/weapon/a02.png",
     priority: 3
   },
   {
@@ -22,7 +22,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 0,
     special_id: 1,
-    path: "./img/question/weapon/a03.png",
+    path: "../img/main/weapon/a03.png",
     priority: 2
   },
   {
@@ -30,7 +30,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 1,
     special_id: 0,
-    path: "./img/question/weapon/a04.png",
+    path: "../img/main/weapon/a04.png",
     priority: 3
   },
   {
@@ -38,7 +38,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 2,
     special_id: 2,
-    path: "./img/question/weapon/a05.png",
+    path: "../img/main/weapon/a05.png",
     priority: 2
   },
   {
@@ -46,7 +46,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 5,
     special_id: 4,
-    path: "./img/question/weapon/a06.png",
+    path: "../img/main/weapon/a06.png",
     priority: 1
   },
   {
@@ -54,7 +54,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 2,
     special_id: 7,
-    path: "./img/question/weapon/a07.png",
+    path: "../img/main/weapon/a07.png",
     priority: 3
   },
   {
@@ -62,7 +62,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 1,
     special_id: 8,
-    path: "./img/question/weapon/a08.png",
+    path: "../img/main/weapon/a08.png",
     priority: 2
   },
   {
@@ -70,7 +70,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 6,
     special_id: 0,
-    path: "./img/question/weapon/a09.png",
+    path: "../img/main/weapon/a09.png",
     priority: 1
   },
   {
@@ -78,7 +78,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 0,
     special_id: 10,
-    path: "./img/question/weapon/a10.png",
+    path: "../img/main/weapon/a10.png",
     priority: 2
   },
   {
@@ -86,7 +86,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 1,
     special_id: 5,
-    path: "./img/question/weapon/a11.png",
+    path: "../img/main/weapon/a11.png",
     priority: 2
   },
   {
@@ -94,7 +94,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 3,
     special_id: 4,
-    path: "./img/question/weapon/a12.png",
+    path: "../img/main/weapon/a12.png",
     priority: 2
   },
   {
@@ -102,7 +102,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 4,
     special_id: 7,
-    path: "./img/question/weapon/a13.png",
+    path: "../img/main/weapon/a13.png",
     priority: 2
   },
   {
@@ -110,7 +110,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 2,
     special_id: 11,
-    path: "./img/question/weapon/a14.png",
+    path: "../img/main/weapon/a14.png",
     priority: 1
   },
   {
@@ -118,7 +118,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 9,
     special_id: 6,
-    path: "./img/question/weapon/a15.png",
+    path: "../img/main/weapon/a15.png",
     priority: 1
   },
   {
@@ -126,7 +126,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 2,
     special_id: 5,
-    path: "./img/question/weapon/a16.png",
+    path: "../img/main/weapon/a16.png",
     priority: 3
   },
   {
@@ -134,7 +134,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 3,
     special_id: 2,
-    path: "./img/question/weapon/a17.png",
+    path: "../img/main/weapon/a17.png",
     priority: 2
   },
   {
@@ -142,7 +142,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 5,
     special_id: 6,
-    path: "./img/question/weapon/a18.png",
+    path: "../img/main/weapon/a18.png",
     priority: 1
   },
   {
@@ -150,7 +150,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 7,
     special_id: 3,
-    path: "./img/question/weapon/a19.png",
+    path: "../img/main/weapon/a19.png",
     priority: 2
   },
   {
@@ -158,7 +158,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 6,
     special_id: 2,
-    path: "./img/question/weapon/a20.png",
+    path: "../img/main/weapon/a20.png",
     priority: 1
   },
   {
@@ -166,7 +166,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 0,
     special_id: 3,
-    path: "./img/question/weapon/a21.png",
+    path: "../img/main/weapon/a21.png",
     priority: 3
   },
   {
@@ -174,7 +174,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 7,
     special_id: 6,
-    path: "./img/question/weapon/a22.png",
+    path: "../img/main/weapon/a22.png",
     priority: 1
   },
   {
@@ -182,7 +182,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 0,
     special_id: 0,
-    path: "./img/question/weapon/a23.png",
+    path: "../img/main/weapon/a23.png",
     priority: 1
   },
   {
@@ -190,7 +190,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 8,
     special_id: 9,
-    path: "./img/question/weapon/a24.png",
+    path: "../img/main/weapon/a24.png",
     priority: 1
   },
   {
@@ -198,7 +198,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 9,
     special_id: 5,
-    path: "./img/question/weapon/a25.png",
+    path: "../img/main/weapon/a25.png",
     priority: 2
   },
   {
@@ -206,7 +206,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 8,
     special_id: 1,
-    path: "./img/question/weapon/a26.png",
+    path: "../img/main/weapon/a26.png",
     priority: 3
   },
   {
@@ -214,7 +214,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 5,
     special_id: 2,
-    path: "./img/question/weapon/a27.png",
+    path: "../img/main/weapon/a27.png",
     priority: 2
   },
   {
@@ -222,7 +222,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 2,
     special_id: 5,
-    path: "./img/question/weapon/a28.png",
+    path: "../img/main/weapon/a28.png",
     priority: 3
   },
   {
@@ -230,7 +230,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 7,
     special_id: 1,
-    path: "./img/question/weapon/a29.png",
+    path: "../img/main/weapon/a29.png",
     priority: 2
   },
   {
@@ -238,7 +238,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 10,
     special_id: 2,
-    path: "./img/question/weapon/a30.png",
+    path: "../img/main/weapon/a30.png",
     priority: 1
   },
   {
@@ -246,7 +246,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 8,
     special_id: 3,
-    path: "./img/question/weapon/a31.png",
+    path: "../img/main/weapon/a31.png",
     priority: 1
   },
   {
@@ -254,7 +254,7 @@ let weapon_data = [
     category: "シューター",
     sub_id: 1,
     special_id: 7,
-    path: "./img/question/weapon/a32.png",
+    path: "../img/main/weapon/a32.png",
     priority: 2
   },
 ];
