@@ -51,7 +51,7 @@ function confirm_ans(question_num, priority_mode){
   }
 }
 
-function check_ans(ans_arr, ans){
+function check_overlap(ans_arr, ans){
   let n = ans_arr.length;
   for(let i=0; i<n; i++){
     if(ans_arr[i] == ans)
@@ -95,10 +95,10 @@ function get_ans(question_num, priority_mode){
   while(1){
     random = Math.floor(Math.random()*priority_sum);
     ans = priority_arr[random];
-    // ＊ check_ans() 関数
+    // ＊ check_overlap() 関数
     //   ans_arr の中に ans がないか（重複がないか）チェック。
     //   重複がなければ true, あれば false
-    if(check_ans(ans_arr, ans)){
+    if(check_overlap(ans_arr, ans)){
       ans_arr.push(ans);
       k++;
     }
@@ -107,6 +107,95 @@ function get_ans(question_num, priority_mode){
     }
   }
   return ans_arr;
+}
+
+function shuffle_arr(arr){
+  for (var i = arr.length - 1; i >= 0; i--){
+    // 0~iのランダムな数値を取得
+    var rand = Math.floor( Math.random() * ( i + 1 ) );
+    // 配列の数値を入れ替える
+    [arr[i], arr[rand]] = [arr[rand], arr[i]]
+  }
+  return arr;
+}
+
+function create_sub_choice(ans, sub_num, q_range){
+  let sub_choice = new Array();
+  let k = 0;
+  let random;
+  if(q_range != 2){
+    sub_choice.push(weapon_data[ans].sub_id);
+    k++;
+    while(1){
+      random = Math.floor(Math.random()*sub_num);
+      if(check_overlap(sub_choice, random)){
+        sub_choice.push(random);
+        k++;
+      }
+      if(k >= 4)
+        break;
+    }
+  }
+  sub_choice = shuffle_arr(sub_choice);
+  return sub_choice;
+}
+
+function create_special_choice(ans, special_num, q_range){
+  let special_choice = new Array();
+  let k = 0;
+  let random;
+  if(q_range != 1){
+
+    // ボムピッチャー系の選択確率を 1 / 5 に下げるために priority_arr を用意する。
+    let priority_arr = new Array();
+    let priority;
+    for(let i=0; i<special_num; i++){
+      if(10 <= i) priority = 1;
+      else priority = 5;
+      for(let j=0; j<priority; j++){
+        priority_arr.push(i);
+      }
+    }
+
+    special_choice.push(weapon_data[ans].special_id);
+    k++;
+    let priority_sum = priority_arr.length;
+    while(1){
+      random = Math.floor(Math.random()*priority_sum);
+      if(check_overlap(special_choice, priority_arr[random])){
+        special_choice.push(priority_arr[random]);
+        k++;
+      }
+      if(k >= 4)
+        break;
+    }
+  }
+  special_choice = shuffle_arr(special_choice);
+  return special_choice;
+}
+
+function create_questions(ans_arr, q_range){
+  let question_num = ans_arr.length;
+  let sub_num = sub_data.length;
+  let special_num = special_data.length;
+
+  let questions = new Array();
+
+  for(let i=0; i<question_num; i++){
+    let ans = ans_arr[i];
+    // sub_choice の決定
+    let sub_choice = create_sub_choice(ans, sub_num, q_range);
+    // special_choice の決定
+    let special_choice = create_special_choice(ans, special_num, q_range);
+
+    let question_obj = {
+      ans: ans,
+      sub_choice: sub_choice,
+      special_choice: special_choice
+    };
+    questions.push(question_obj);
+  }
+  return questions;
 }
 
 /* get_questions() 関数
@@ -119,11 +208,18 @@ function get_ans(question_num, priority_mode){
      - 0 サブスペ両方
      - 1 サブのみ
      - 2 スペシャルのみ
-  @return
+  @return question オブジェクト x question_num の配列
+    * question オブジェクト
+      {
+        ans: インデックス
+        sub_choice: [o, o, o, o] ← sub_id が 4つ。必ず weapon_data[ans].sub_id と一致するものが含まれる。
+        special_choice: [o, o, o, o] ← special_id が 4つ。必ず weapon_data[ans].special_id と一致するものが含まれる。
+      }
+    ※ q_range が 0 ではない場合は sub_choice / special_choice のどちらかが空の配列になる。
 */
 function get_questions(question_num, priority_mode, q_range){
   let ans_arr = get_ans(question_num, priority_mode); // まず問題にするブキのインデックスが格納されている配列を取得。
-  console.log(ans_arr);
+  let questions = create_questions(ans_arr, q_range); // question_obj が格納されている配列を取得。
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
