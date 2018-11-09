@@ -15,6 +15,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log("DOM fully loaded and parsed");
     getScreenSize();
     $("#start_btn").click(() => {
-      location.href = "./q_num_select.html"
+      location.href = "../q_num_select/q_num_select.html"
     })
   });
