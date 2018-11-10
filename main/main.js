@@ -57,7 +57,18 @@ function create_newpage(questions, question_i, question_num, subspe_flag){
   let html_str = create_html_str(questions[question_i], question_i, subspe_flag); // 表示する html の DOM を文字列として受け取る。
   let body = document.getElementsByTagName("body")[0];
   body.insertAdjacentHTML('beforeend', html_str);
+  let ans_choice = get_ans_choice(questions[question_i], subspe_flag);
+  console.log(ans_choice);
+  initialize_click_event(ans_choice);
 }
+
+/* グローバルパラメータ
+  * status: Webページの状態を表す。
+    - 0: 出題中
+    - 1: フィードバック表示中
+    - 2: 「tap to next」表示中
+*/
+let status = 0;
 
 document.addEventListener("DOMContentLoaded", function(event) {
   let val = get_url_vars();
@@ -70,5 +81,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //confirm_data();
   //confirm_ans(question_num, priority_mode);
   let questions = get_questions(question_num, priority_mode, q_range);
-  //create_newpage(questions, 0, question_num, 0);
+  create_newpage(questions, 0, question_num, 0);
 });

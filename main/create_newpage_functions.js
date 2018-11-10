@@ -1,5 +1,4 @@
 /* html 雛形
-
 1. <div id="headline" class="word1">1. キャンピングシェルターソレーラ</div>
 2. <img src="../img/main/weapon/a01.png" class="weapon">
 3. <div id="question" class="word1">サブ はどれ？</div>
@@ -23,9 +22,7 @@
 21.   <p class="word2">トーピード</p>
 22.   <img src="../img/main/btn_red.png" class="btn">
 23. </div>
-
 */
-
 function create_html_str(question_obj, question_i, subspe_flag){
   let q_num = question_i + 1;
   let weapon_name = weapon_data[question_obj.ans].name;
@@ -79,7 +76,7 @@ function create_html_str(question_obj, question_i, subspe_flag){
   // 15.
   html_str += '<img src="' + choice_path_arr[2] + '" class="icon">';
   // 16.
-  html_str += '<p class="word2">' + choice_name_arr[3] + '</p>';
+  html_str += '<p class="word2">' + choice_name_arr[2] + '</p>';
   // 17.
   html_str += '<img src="../img/main/btn_orange.png" class="btn">';
   // 18.
@@ -96,4 +93,59 @@ function create_html_str(question_obj, question_i, subspe_flag){
   html_str += '</div>';
 
   return html_str;
+}
+
+function get_ans_choice(question_obj, subspe_flag){
+  let ans = question_obj.ans;
+  let ans_id, i;
+  if(subspe_flag == 0){ // サブの場合
+    ans_id = weapon_data[ans].sub_id;
+    for(i=0; i<4; i++){
+      if(question_obj.sub_choice[i] == ans_id)
+        return i+1;
+    }
+  }
+  else {
+    ans_id = weapon_data[ans].special_id;
+    for(i=0; i<4; i++){
+      if(question_obj.special_choice[i] == ans_id)
+        return i+1;
+    }
+  }
+  console.log("!!! エラー: 答えが選択肢にありません。");
+}
+
+/* html 雛形
+1. <div class="feedback">
+2.   <img src="../img/main/correct.png" class="feedback_effect">
+3. </div>
+*/
+function create_feedback(correct){
+  let c = "";
+  if(correct){
+    console.log("ナイス!");
+    c = "correct";
+  }
+  else{
+    console.log("やられた!");
+    c = "incorrect";
+  }
+
+  let html_str = "";
+  // 1.
+  html_str += '<div class="feedback">';
+  // 2.
+  html_str += '<img src="../img/main/' + c + '.png" class="feedback_effect">';
+  // 3.
+  html_str += '</div>';
+
+  // body に差し込む。
+  let body = document.getElementsByTagName("body")[0];
+  body.insertAdjacentHTML('beforeend', html_str);
+
+  // 1 秒後、フィードバックエフェクトを削除
+  setTimeout(function(){
+    $(".feedback").remove();
+    status = 2;
+  }, 1000);
 }
