@@ -16,6 +16,8 @@ function get_url_vars(){
 
 
 /* get_questions() 関数
+  @discription
+    問題を question_num 個生成する。1 つの問題の情報は question_obj に格納される。
   @params
     * question_num: 出題数
     * priority_mode: ブキ人気度に応じて出題確率を変えるか。
@@ -40,6 +42,23 @@ function get_questions(question_num, priority_mode, q_range){
   return questions;
 }
 
+/* create_newpage() 関数
+  @discription
+    問題のページを生成し、表示する。
+  @params
+    * questions: question_obj の配列。question_num 個の要素をもつ。
+    * question_i: 何番目の問題かを表す変数。
+    * question_num: 問題数。
+    * subspe_flag:
+      - 0: サブの問題を生成/表示。
+      - 1: スペシャルの問題を生成/表示。
+*/
+function create_newpage(questions, question_i, question_num, subspe_flag){
+  let html_str = create_html_str(questions[question_i], question_i, subspe_flag); // 表示する html の DOM を文字列として受け取る。
+  let body = document.getElementsByTagName("body")[0];
+  body.insertAdjacentHTML('beforeend', html_str);
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
   let val = get_url_vars();
   // パラメータ ********************************
@@ -51,4 +70,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //confirm_data();
   //confirm_ans(question_num, priority_mode);
   let questions = get_questions(question_num, priority_mode, q_range);
+  create_newpage(questions, 0, question_num, 0);
 });
