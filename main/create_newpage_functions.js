@@ -185,5 +185,58 @@ function switch2tap_to_next(correct, ans_choice){
   let tap_to_next_html = '<div id="tap_to_next" class="word1">Tap to Next</div>';
   let body = document.getElementsByTagName("body")[0];
   body.insertAdjacentHTML('beforeend', tap_to_next_html);
+}
 
+function compute_next_parameters(questions, question_i, question_num, subspe_flag, q_range){
+  let next_question_i;
+  let next_subspe_flag;
+  let terminal;
+
+  switch (q_range){
+    case 0: // サブスペ両方
+      if(question_i == question_num - 1 && subspe_flag == 1){ // 終端
+        terminal = true;
+      }
+      else if(subspe_flag == 0){ // 現在 サブの問題の場合
+        next_question_i = question_i;
+        next_subspe_flag = 1;
+      }
+      else{ // 現在 スペシャルの問題の場合
+        next_question_i = question_i + 1;
+        next_subspe_flag = 0;
+      }
+      break;
+    case 1: // サブのみ
+      if(question_i == question_num - 1) // 終端
+        terminal = true;
+      else{
+        terminal = false;
+        next_question_i = question_i + 1;
+        next_subspe_flag = 0;
+      }
+      break;
+    case 2: // スペシャルのみ
+      if(question_i == question_num - 1) // 終端
+        terminal = true;
+      else{
+        terminal = false;
+        next_question_i = question_i + 1;
+        next_subspe_flag = 1;
+      }
+      break
+    default:
+      console.log("エラー: どの case 文にも当てはまりません。");
+      break;
+  }
+
+  let next_parameters = {
+    questions: questions,
+    question_i: next_question_i,
+    question_num: question_num,
+    subspe_flag: next_subspe_flag,
+    q_range: q_range,
+    terminal: terminal
+  };
+
+  return next_parameters;
 }

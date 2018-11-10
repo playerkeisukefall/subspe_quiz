@@ -52,14 +52,22 @@ function get_questions(question_num, priority_mode, q_range){
     * subspe_flag:
       - 0: サブの問題を生成/表示。
       - 1: スペシャルの問題を生成/表示。
+    * q_range: 出題範囲
+      - 0: サブスペ両方
+      - 1: サブのみ
+      - 2: スペシャルのみ
+    * terminal: 終端かどうかを表す
+      - true: 終端
+      - false: 終端ではない
 */
-function create_newpage(questions, question_i, question_num, subspe_flag){
+function create_newpage(questions, question_i, question_num, subspe_flag, q_range, terminal){
   let html_str = create_html_str(questions[question_i], question_i, subspe_flag); // 表示する html の DOM を文字列として受け取る。
   let body = document.getElementsByTagName("body")[0];
   body.insertAdjacentHTML('beforeend', html_str);
   let ans_choice = get_ans_choice(questions[question_i], subspe_flag);
   console.log(ans_choice);
-  initialize_click_event(ans_choice);
+  let next_parameters = compute_next_parameters(questions, question_i, question_num, subspe_flag, q_range);
+  set_click_event(ans_choice, next_parameters);
 }
 
 /* グローバルパラメータ
@@ -69,6 +77,7 @@ function create_newpage(questions, question_i, question_num, subspe_flag){
     - 2: 「tap to next」表示中
 */
 let status = 0;
+let next_parameters;
 
 document.addEventListener("DOMContentLoaded", function(event) {
   let val = get_url_vars();
@@ -81,5 +90,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //confirm_data();
   //confirm_ans(question_num, priority_mode);
   let questions = get_questions(question_num, priority_mode, q_range);
-  create_newpage(questions, 0, question_num, 0);
+  if(q_range != 2)
+    create_newpage(questions, 0, question_num, 0, q_range, false);
+  else
+    create_newpage(questions, 0, question_num, 1, q_range, false);
 });
