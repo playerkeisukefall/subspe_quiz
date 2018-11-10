@@ -182,7 +182,8 @@ function switch2tap_to_next(correct, ans_choice, np){
   question.insertAdjacentHTML('afterend', ans_word_html);
 
   // body の末尾に tap_to_next を挿入
-  let tap_to_next_html = '<div id="tap_to_next" class="word1"><br>Tap to Next</div>';
+  let tap_to_next_html = '<img src="../img/main/tap_to_next.png" id="tap_to_next">';
+  //let tap_to_next_html = '<div id="tap_to_next" class="word1">Tap to Next</div>';
   let body = document.getElementsByTagName("body")[0];
   body.insertAdjacentHTML('beforeend', tap_to_next_html);
 
@@ -264,5 +265,5 @@ function finish(question_num, q_range){
     url += "sub=" + String(sub_correct_count) + "&";
     url += "special=" + String(special_correct_count);
     location.href = url;
-  }, 1500);
+  }, 800);
 }
