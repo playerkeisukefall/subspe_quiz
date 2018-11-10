@@ -91,3 +91,10 @@ body{
     opacity: 0.2;
   }
 }
+.finish{
+  position: absolute;
+  left: 0px;
+  top: 200px;
+  max-width: 100%;
+  z-index: 1;
+}

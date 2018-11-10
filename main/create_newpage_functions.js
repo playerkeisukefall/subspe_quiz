@@ -240,3 +240,22 @@ function compute_next_parameters(questions, question_i, question_num, subspe_fla
 
   return next_parameters;
 }
+
+/* html
+ - body の末尾
+ <img src="../img/main/finish.png" class="finish">
+*/
+function finish(){
+  // body の末尾に finish を挿入
+  let finish_html = ' <img src="../img/main/finish.png" class="finish">';
+  let body = document.getElementsByTagName("body")[0];
+  body.insertAdjacentHTML('beforeend', finish_html);
+
+  // tap_to_next を削除
+  $("#tap_to_next").remove();
+
+  // 1.5秒後 result にページ遷移
+  setTimeout(function(){
+    location.href = "../result/result.html";
+  }, 1500);
+}

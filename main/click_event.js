@@ -41,7 +41,8 @@ function set_click_event(ans_choice, np){ // np: next parameters
       status = 0;
       console.log("next !!");
       $("body").off("click");
-      $("body").empty();
+      if(np.terminal != true) // 最後だけそのまま残す
+        $("body").empty();
       create_newpage(np.questions, np.question_i, np.question_num, np.subspe_flag, np.q_range, np.terminal);
     }
   });

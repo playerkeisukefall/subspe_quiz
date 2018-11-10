@@ -61,13 +61,17 @@ function get_questions(question_num, priority_mode, q_range){
       - false: 終端ではない
 */
 function create_newpage(questions, question_i, question_num, subspe_flag, q_range, terminal){
-  let html_str = create_html_str(questions[question_i], question_i, subspe_flag); // 表示する html の DOM を文字列として受け取る。
-  let body = document.getElementsByTagName("body")[0];
-  body.insertAdjacentHTML('beforeend', html_str);
-  let ans_choice = get_ans_choice(questions[question_i], subspe_flag);
-  console.log(ans_choice);
-  let next_parameters = compute_next_parameters(questions, question_i, question_num, subspe_flag, q_range);
-  set_click_event(ans_choice, next_parameters);
+  if(terminal)
+    finish();
+  else{
+    let html_str = create_html_str(questions[question_i], question_i, subspe_flag); // 表示する html の DOM を文字列として受け取る。
+    let body = document.getElementsByTagName("body")[0];
+    body.insertAdjacentHTML('beforeend', html_str);
+    let ans_choice = get_ans_choice(questions[question_i], subspe_flag);
+    console.log(ans_choice);
+    let next_parameters = compute_next_parameters(questions, question_i, question_num, subspe_flag, q_range);
+    set_click_event(ans_choice, next_parameters);
+  }
 }
 
 /* グローバルパラメータ
@@ -84,14 +88,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // パラメータ ********************************
   const question_num = Number(val["num"]);
   const priority_mode = true;
-  const q_range = 0;
+  const q_range = 2;
   // *****************************************
   console.log(question_num);
   //confirm_data();
   //confirm_ans(question_num, priority_mode);
   let questions = get_questions(question_num, priority_mode, q_range);
+
   if(q_range != 2)
     create_newpage(questions, 0, question_num, 0, q_range, false);
   else
     create_newpage(questions, 0, question_num, 1, q_range, false);
+
 });
