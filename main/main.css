@@ -1,0 +1,49 @@
+body{
+  background-image: url("../img/main/back.png");
+  background-size: cover;
+}
+#headline{
+  margin-top: 100px;
+}
+.word1{
+  font-size: 80px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+.weapon{
+  display: block;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.choice{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.icon{
+  position: absolute;
+  width: 100px;
+  margin-top: 30px;
+  margin-left: 130px;
+  z-index: 1;
+}
+.word2{
+  position: absolute;
+  font-size: 47px;
+  font-weight: bold;
+  margin-top: 45px;
+  margin-left: 240px;
+  z-index: 1;
+}
+.btn{
+  position: relative;
+  display: block;
+  width: 850px;
+  height: 170px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
+}
