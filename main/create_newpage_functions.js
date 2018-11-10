@@ -120,7 +120,7 @@ function get_ans_choice(question_obj, subspe_flag){
 2.   <img src="../img/main/correct.png" class="feedback_effect">
 3. </div>
 */
-function create_feedback(correct, ans_choice){
+function create_feedback(correct, ans_choice, np){
   let c = "";
   if(correct){
     console.log("ナイス!");
@@ -147,7 +147,7 @@ function create_feedback(correct, ans_choice){
   setTimeout(function(){
     $(".feedback").remove();
     status = 2;
-    switch2tap_to_next(correct, ans_choice);
+    switch2tap_to_next(correct, ans_choice, np);
   }, 1000);
 }
 
@@ -157,7 +157,7 @@ function create_feedback(correct, ans_choice){
 - $("body") 内部の末尾
   <div id="tap_to_next" class="word1">Tap to Next</div>
 */
-function switch2tap_to_next(correct, ans_choice){
+function switch2tap_to_next(correct, ans_choice, np){
   // 正解以外の選択肢を削除
   let id_name;
   for(let i=1; i<=4; i++){
@@ -182,9 +182,11 @@ function switch2tap_to_next(correct, ans_choice){
   question.insertAdjacentHTML('afterend', ans_word_html);
 
   // body の末尾に tap_to_next を挿入
-  let tap_to_next_html = '<div id="tap_to_next" class="word1">Tap to Next</div>';
+  let tap_to_next_html = '<div id="tap_to_next" class="word1"><br>Tap to Next</div>';
   let body = document.getElementsByTagName("body")[0];
   body.insertAdjacentHTML('beforeend', tap_to_next_html);
+
+  set_tap_to_next_event(np);
 }
 
 function compute_next_parameters(questions, question_i, question_num, subspe_flag, q_range){
