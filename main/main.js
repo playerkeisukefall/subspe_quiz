@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   const q_range = 0;
   // *****************************************
   console.log(question_num);
-  //confirm_data();
+  confirm_data();
   //confirm_ans(question_num, priority_mode);
   let questions = get_questions(question_num, priority_mode, q_range);
 
