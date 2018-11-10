@@ -61,8 +61,10 @@ function get_questions(question_num, priority_mode, q_range){
       - false: 終端ではない
 */
 function create_newpage(questions, question_i, question_num, subspe_flag, q_range, terminal){
+  console.log("サブ正解数: " + sub_correct_count);
+  console.log("スペシャル正解数: " + special_correct_count);
   if(terminal)
-    finish();
+    finish(question_num, q_range);
   else{
     let html_str = create_html_str(questions[question_i], question_i, subspe_flag); // 表示する html の DOM を文字列として受け取る。
     let body = document.getElementsByTagName("body")[0];
@@ -70,7 +72,7 @@ function create_newpage(questions, question_i, question_num, subspe_flag, q_rang
     let ans_choice = get_ans_choice(questions[question_i], subspe_flag);
     console.log(ans_choice);
     let next_parameters = compute_next_parameters(questions, question_i, question_num, subspe_flag, q_range);
-    set_click_event(ans_choice, next_parameters);
+    set_click_event(ans_choice, next_parameters, subspe_flag);
   }
 }
 
@@ -79,9 +81,12 @@ function create_newpage(questions, question_i, question_num, subspe_flag, q_rang
     - 0: 出題中
     - 1: フィードバック表示中
     - 2: 「tap to next」表示中
+  * sub_correct_count: サブ問題の正解数を表す
+  * special_correct_count: スペシャル問題の正解数を表す
 */
 let status = 0;
-let next_parameters;
+let sub_correct_count = 0;
+let special_correct_count = 0;
 
 document.addEventListener("DOMContentLoaded", function(event) {
   let val = get_url_vars();
@@ -98,6 +103,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   if(q_range != 2)
     create_newpage(questions, 0, question_num, 0, q_range, false);
   else
-    create_newpage(questions, 0, question_num, 1, q_range, false);
+    create_newpage(questions, 9, question_num, 1, q_range, false);
 
 });

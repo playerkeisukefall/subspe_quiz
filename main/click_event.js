@@ -1,9 +1,19 @@
-function set_click_event(ans_choice, np){ // np: next parameters
+function add_correct_count(subspe_flag){
+  if(subspe_flag == 0)
+    sub_correct_count++;
+  else
+    special_correct_count++;
+}
+
+function set_click_event(ans_choice, np, subspe_flag){ // np: next parameters
   // choice1
   $("#choice1").click(() => {
     if(status == 0){
       status = 1;
-      if(ans_choice == 1) create_feedback(true, ans_choice);
+      if(ans_choice == 1){
+        create_feedback(true, ans_choice);
+        add_correct_count(subspe_flag);
+      }
       else create_feedback(false, ans_choice);
     }
   });
@@ -12,7 +22,10 @@ function set_click_event(ans_choice, np){ // np: next parameters
   $("#choice2").click(() => {
     if(status == 0){
       status = 1;
-      if(ans_choice == 2) create_feedback(true, ans_choice);
+      if(ans_choice == 2){
+        create_feedback(true, ans_choice);
+        add_correct_count(subspe_flag);
+      }
       else create_feedback(false, ans_choice);
     }
   });
@@ -21,7 +34,10 @@ function set_click_event(ans_choice, np){ // np: next parameters
   $("#choice3").click(() => {
     if(status == 0){
       status = 1;
-      if(ans_choice == 3) create_feedback(true, ans_choice);
+      if(ans_choice == 3){
+        create_feedback(true, ans_choice);
+        add_correct_count(subspe_flag);
+      }
       else create_feedback(false, ans_choice);
     }
   });
@@ -30,7 +46,10 @@ function set_click_event(ans_choice, np){ // np: next parameters
   $("#choice4").click(() => {
     if(status == 0){
       status = 1;
-      if(ans_choice == 4) create_feedback(true, ans_choice);
+      if(ans_choice == 4){
+        create_feedback(true, ans_choice);
+        add_correct_count(subspe_flag);
+      }
       else create_feedback(false, ans_choice);
     }
   });

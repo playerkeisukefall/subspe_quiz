@@ -245,7 +245,7 @@ function compute_next_parameters(questions, question_i, question_num, subspe_fla
  - body の末尾
  <img src="../img/main/finish.png" class="finish">
 */
-function finish(){
+function finish(question_num, q_range){
   // body の末尾に finish を挿入
   let finish_html = ' <img src="../img/main/finish.png" class="finish">';
   let body = document.getElementsByTagName("body")[0];
@@ -256,6 +256,11 @@ function finish(){
 
   // 1.5秒後 result にページ遷移
   setTimeout(function(){
-    location.href = "../result/result.html";
+    let url = "../result/result.html?";
+    url += "num=" + String(question_num) + "&";
+    url += "q_range=" + String(q_range) + "&";
+    url += "sub=" + String(sub_correct_count) + "&";
+    url += "special=" + String(special_correct_count);
+    location.href = url;
   }, 1500);
 }
