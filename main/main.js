@@ -70,5 +70,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //confirm_data();
   //confirm_ans(question_num, priority_mode);
   let questions = get_questions(question_num, priority_mode, q_range);
-  create_newpage(questions, 0, question_num, 0);
+  //create_newpage(questions, 0, question_num, 0);
 });
