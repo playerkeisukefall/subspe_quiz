@@ -68,3 +68,30 @@ body{
   margin-top: 100px;
   width: 267%;
 }
+
+/*********************** tap to next **********************************************************/
+.word_correct{
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
+  font-size: 58px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  margin-top: 50px;
+}
+.word_incorrect{
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
+  font-size: 58px;
+  font-weight: bold;
+  color: #00FFFF; /* ネイビー */
+  text-align: center;
+  margin-top: 50px;
+}
+#tap_to_next{
+  margin-top: 100px;
+  animation: Flash 2s infinite;
+}
+@keyframes Flash{
+  50%{
+    opacity: 0.2;
+  }
+}
