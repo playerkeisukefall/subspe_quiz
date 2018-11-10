@@ -265,5 +265,5 @@ function finish(question_num, q_range){
     url += "sub=" + String(sub_correct_count) + "&";
     url += "special=" + String(special_correct_count);
     location.href = url;
-  }, 800);
+  }, 1500);
 }
