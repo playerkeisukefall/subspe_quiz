@@ -36,7 +36,16 @@
   font-size: 50px;
   color: white;
 }
-.word2{
+.word2_sub{
+  position: absolute;
+  top: -15px;
+  left: 500px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
+  font-size: 70px;
+  font-weight: bold;
+  color: white;
+}
+.word2_special{
   position: absolute;
   top: -15px;
   left: 500px;
@@ -80,9 +89,9 @@
 .word5_flame{
   position: absolute;
   top: 20px;
-  left: 330px;
+  left: 335px;
   height: 160px;
-  width: 540px;
+  width: 535px;
 }
 .word5{
   font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
