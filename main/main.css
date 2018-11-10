@@ -1,0 +1,100 @@
+body{
+  background-image: url("../img/main/back.png");
+  background-size: cover;
+}
+
+/************************ 問題ページ レイヤー *********************************************/
+#headline{
+  margin-top: 100px;
+}
+.word1{
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
+  font-size: 58px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+.weapon{
+  display: block;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.choice{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.icon{
+  position: absolute;
+  width: 100px;
+  margin-top: 30px;
+  margin-left: 130px;
+  z-index: 1;
+}
+.word2{
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
+  position: absolute;
+  font-size: 47px;
+  font-weight: bold;
+  margin-top: 45px;
+  margin-left: 240px;
+  z-index: 1;
+}
+.btn{
+  position: relative;
+  display: block;
+  width: 850px;
+  height: 170px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
+}
+
+/************************ フィードバックページ レイヤー *********************************************/
+.feedback{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+.feedback_effect{
+  top: 0px;
+  margin-top: 100px;
+  width: 267%;
+}
+
+/*********************** tap to next **********************************************************/
+.word_correct{
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
+  font-size: 58px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  margin-top: 50px;
+}
+.word_incorrect{
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
+  font-size: 58px;
+  font-weight: bold;
+  color: #00FFFF; /* ネイビー */
+  text-align: center;
+  margin-top: 50px;
+}
+#tap_to_next{
+  margin-top: 100px;
+  animation: Flash 2s infinite;
+}
+@keyframes Flash{
+  50%{
+    opacity: 0.2;
+  }
+}
+.finish{
+  position: absolute;
+  left: 0px;
+  top: 200px;
+  max-width: 100%;
+  z-index: 1;
+}
