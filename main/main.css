@@ -6,14 +6,15 @@ body{
   margin-top: 100px;
 }
 .word1{
-  font-size: 80px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
+  font-size: 58px;
   font-weight: bold;
   color: white;
   text-align: center;
 }
 .weapon{
   display: block;
-  width: 400px;
+  width: 350px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -31,6 +32,7 @@ body{
   z-index: 1;
 }
 .word2{
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
   position: absolute;
   font-size: 47px;
   font-weight: bold;
