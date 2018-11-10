@@ -55,7 +55,7 @@ function set_click_event(ans_choice, np, subspe_flag){ // np: next parameters
   });
 
   // tap to next
-  $("html").click(() => {
+  $("body").click(() => {
     if(status == 2){
       status = 0;
       console.log("next !!");
