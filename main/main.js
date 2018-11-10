@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // パラメータ ********************************
   const question_num = Number(val["num"]);
   const priority_mode = true;
-  const q_range = 2;
+  const q_range = 0;
   // *****************************************
   console.log(question_num);
   //confirm_data();
@@ -103,6 +103,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   if(q_range != 2)
     create_newpage(questions, 0, question_num, 0, q_range, false);
   else
-    create_newpage(questions, 9, question_num, 1, q_range, false);
+    create_newpage(questions, 0, question_num, 1, q_range, false);
 
 });
