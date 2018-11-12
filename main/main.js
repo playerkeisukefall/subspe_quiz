@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   let questions = get_questions(question_num, priority_mode, q_range);
 
   if(q_range != 2)
-    create_newpage(questions, 0, question_num, 0, q_range, false);
+    create_newpage(questions, 9, question_num, 0, q_range, false);
   else
     create_newpage(questions, 0, question_num, 1, q_range, false);
 
