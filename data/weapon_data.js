@@ -446,7 +446,7 @@ let weapon_data = [
     category: "ローラー",
     sub_id: 8,
     special_id: 14,
-    path: "../img/main/weapon/c010.png",
+    path: "../img/main/weapon/c10.png",
     priority: 1
   },
   {
@@ -822,7 +822,7 @@ let weapon_data = [
     category: "マニューバー",
     sub_id: 2,
     special_id: 6,
-    path: "../img/main/weapon/h12.png",
+    path: "../img/main/weapon/h04.png",
     priority: 3
   },
   {

@@ -31,7 +31,8 @@
 .word1{
   position: absolute;
   top: 20px;
-  left: 600px;
+  left: 50%;
+  margin-left: 100px;
   font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
   font-size: 50px;
   color: white;
@@ -39,7 +40,7 @@
 .word2_sub{
   position: absolute;
   top: -15px;
-  left: 500px;
+  left: 50%;
   font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
   font-size: 70px;
   font-weight: bold;
@@ -48,16 +49,18 @@
 .word2_special{
   position: absolute;
   top: -15px;
-  left: 500px;
+  left: 50%;
   font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
   font-size: 70px;
   font-weight: bold;
   color: white;
 }
 .word3{
+  position: relative;
+  left: 50%;
+  margin-left: -400px;
   margin-top: 30px;
   height: 80px;
-  width: auto;
 }
 .udemae{
   display: block;
@@ -66,9 +69,11 @@
   margin-right: auto;
 }
 .word4{
+  position: relative;
+  left: 50%;
+  margin-left: -400px;
   margin-top: 30px;
   height: 65px;
-  width: auto;
 }
 .hireo_hitokoto{
   position: relative;
@@ -89,7 +94,8 @@
 .word5_flame{
   position: absolute;
   top: 20px;
-  left: 335px;
+  left: 50%;
+  margin-left: -150px;
   height: 160px;
   width: 535px;
 }
