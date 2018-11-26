@@ -244,6 +244,32 @@ function compute_next_parameters(questions, question_i, question_num, subspe_fla
   return next_parameters;
 }
 
+function set_url(question_num, q_range){
+  let url = "../result/result.html?";
+  url += "num=" + String(question_num) + "&";
+  url += "q_range=" + String(q_range) + "&";
+  let sub_correct_count = 0;
+  let special_correct_count = 0;
+  for(let i=0; i<question_num; i++){
+    let c = 0;
+    if(record[i].sub == 1){
+      sub_correct_count++;
+      c += 1;
+    }
+    if(record[i].special == 1){
+      special_correct_count++;
+      c += 2;
+    }
+    if((q_range == 0 && c < 3) || (q_range == 1 && c < 1) || (q_range == 2 && c < 2)){
+      url += "w" + String(i+1) + "=" + String(record[i].weapon_index) + "&";
+      url += "c" + String(i+1) + "=" + String(c) + "&";
+    }
+  }
+  url += "sub=" + String(sub_correct_count) + "&";
+  url += "special=" + String(special_correct_count);
+  return url;
+}
+
 /* html
  - body の末尾
  <img src="../img/main/finish.png" class="finish">
@@ -259,11 +285,8 @@ function finish(question_num, q_range){
 
   // 1.5秒後 result にページ遷移
   setTimeout(function(){
-    let url = "../result/result.html?";
-    url += "num=" + String(question_num) + "&";
-    url += "q_range=" + String(q_range) + "&";
-    url += "sub=" + String(sub_correct_count) + "&";
-    url += "special=" + String(special_correct_count);
+    url = set_url(question_num, q_range);
+    console.log(url);
     location.href = url;
   }, 1500);
 }

@@ -1,18 +1,20 @@
-function add_correct_count(subspe_flag){
-  if(subspe_flag == 0)
-    sub_correct_count++;
-  else
-    special_correct_count++;
+function record_result(question_i, subspe_flag){
+  if(subspe_flag == 0){
+    record[question_i].sub = 1;
+  }
+  else{
+    record[question_i].special = 1;
+  }
 }
 
-function set_click_event(ans_choice, np, subspe_flag){ // np: next parameters
+function set_click_event(ans_choice, np, subspe_flag, question_i){ // np: next parameters
   // choice1
   $("#choice1").click(() => {
     if(status == 0){
       status = 1;
       if(ans_choice == 1){
         create_feedback(true, ans_choice, np);
-        add_correct_count(subspe_flag);
+        record_result(question_i, subspe_flag);
       }
       else create_feedback(false, ans_choice, np);
     }
@@ -24,7 +26,7 @@ function set_click_event(ans_choice, np, subspe_flag){ // np: next parameters
       status = 1;
       if(ans_choice == 2){
         create_feedback(true, ans_choice, np);
-        add_correct_count(subspe_flag);
+        record_result(question_i, subspe_flag);
       }
       else create_feedback(false, ans_choice, np);
     }
@@ -36,7 +38,7 @@ function set_click_event(ans_choice, np, subspe_flag){ // np: next parameters
       status = 1;
       if(ans_choice == 3){
         create_feedback(true, ans_choice, np);
-        add_correct_count(subspe_flag);
+        record_result(question_i, subspe_flag);
       }
       else create_feedback(false, ans_choice, np);
     }
@@ -48,7 +50,7 @@ function set_click_event(ans_choice, np, subspe_flag){ // np: next parameters
       status = 1;
       if(ans_choice == 4){
         create_feedback(true, ans_choice, np);
-        add_correct_count(subspe_flag);
+        record_result(question_i, subspe_flag);
       }
       else create_feedback(false, ans_choice, np);
     }

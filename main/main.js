@@ -42,6 +42,16 @@ function get_questions(question_num, priority_mode, q_range){
   return questions;
 }
 
+function push_obj_to_record(question_i, weapon_index){
+  if(record.length == question_i){ // record[question_i] に要素がなければ
+    record.push({
+      weapon_index: weapon_index,
+      sub: 0,
+      special: 0
+    });
+  }
+}
+
 /* create_newpage() 関数
   @discription
     問題のページを生成し、表示する。
@@ -61,18 +71,17 @@ function get_questions(question_num, priority_mode, q_range){
       - false: 終端ではない
 */
 function create_newpage(questions, question_i, question_num, subspe_flag, q_range, terminal){
-  console.log("サブ正解数: " + sub_correct_count);
-  console.log("スペシャル正解数: " + special_correct_count);
   if(terminal)
     finish(question_num, q_range);
   else{
+    push_obj_to_record(question_i, questions[question_i].ans); // 記録用オブジェクトを record に push
     let html_str = create_html_str(questions[question_i], question_i, subspe_flag); // 表示する html の DOM を文字列として受け取る。
     let body = document.getElementsByTagName("body")[0];
     body.insertAdjacentHTML('beforeend', html_str);
     let ans_choice = get_ans_choice(questions[question_i], subspe_flag);
     console.log(ans_choice);
     let next_parameters = compute_next_parameters(questions, question_i, question_num, subspe_flag, q_range);
-    set_click_event(ans_choice, next_parameters, subspe_flag);
+    set_click_event(ans_choice, next_parameters, subspe_flag, question_i);
   }
 }
 
@@ -81,12 +90,15 @@ function create_newpage(questions, question_i, question_num, subspe_flag, q_rang
     - 0: 出題中
     - 1: フィードバック表示中
     - 2: 「tap to next」表示中
-  * sub_correct_count: サブ問題の正解数を表す
-  * special_correct_count: スペシャル問題の正解数を表す
+  * record: 正誤を記録する配列。question_num 個の記録オブジェクトを持つ。
+    - 記録オブジェクト: {
+        weapon_index: weapon のインデックス
+        sub: 0 不正解 , 1 正解
+        special: 0 不正解 , 1 正解
+      }
 */
 let status = 0;
-let sub_correct_count = 0;
-let special_correct_count = 0;
+let record = new Array();
 
 document.addEventListener("DOMContentLoaded", function(event) {
   let val = get_url_vars();
@@ -104,5 +116,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
     create_newpage(questions, 0, question_num, 0, q_range, false);
   else
     create_newpage(questions, 0, question_num, 1, q_range, false);
-
 });
